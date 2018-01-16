@@ -5,7 +5,7 @@ C# offers multiple numeric types, for integer data types and non-integer data ty
 **Integer Data Types**
 
 | Type | Description | Minimum Value | Maximum Value |
-|-|-|-|-|
+|------|-------------|---------------|---------------|
 | `byte` | Unsigned byte | 0 | 255 |
 | `sbyte` | Signed byte | -128 | 127 |
 | `short` | Signed byte | -32 768 | 32 767 |
