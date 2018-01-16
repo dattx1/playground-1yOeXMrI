@@ -11,14 +11,12 @@ class Example
     static void Main() 
     {
 // }
-
     double a = 0.1;
     double b = 0.01;
     double c = a * a;
     
     // We should have true, as 0,1 * 0,1 = 0,01
     Console.WriteLine($"b == c: {b == c}");
-
 // { autofold
     }
 }
@@ -40,14 +38,12 @@ class Example
     static void Main() 
     {
 // }
-
     decimal a = 0.1m;
     decimal b = 0.01m;
     decimal c = a * a;
     
     // We should have true, as 0,1 * 0,1 = 0,01
     Console.WriteLine($"b == c: {b == c}");
-
 // { autofold
     }
 }
