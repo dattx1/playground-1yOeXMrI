@@ -1,4 +1,10 @@
 title: C# Professional - Numbers 
 plan:
-- title: Numbers in C#
+- title: Numeric types in C#
   statement: markdowns/numbers.md
+- title: Arithmetic overflow
+  statement: markdowns/overflow.md
+- title: Precision & Rounding
+  statement: markdowns/precision.md
+- title: Formatting & Parsing
+  statement: markdowns/formatting.md

@@ -2,10 +2,10 @@
 
 C# offers multiple numeric types, for integer data types and non-integer data types.
 
-**Integer Data Types**
+## Integer Data Types
 
 | Type | Description | Minimum Value | Maximum Value |
-|------|-------------|---------------|---------------|
+|------|-------------|--------------:|--------------:|
 | `byte` | Unsigned byte | 0 | 255 |
 | `sbyte` | Signed byte | -128 | 127 |
 | `short` | Signed byte | -32 768 | 32 767 |
@@ -15,25 +15,13 @@ C# offers multiple numeric types, for integer data types and non-integer data ty
 | `long` | Signed byte | -9x10<sup>8</sup> | 9x10<sup>8</sup> |
 | `ulong` | Unsigned byte | 0 | 1,8x10<sup>19</sup> |
 
+##Non-integer Data Types##
 
-```C# runnable
-// { autofold
-using System;
+All non-integer data types are signed.
 
-class Hello 
-{
-    static void Main() 
-    {
-// }
+| Type | Description | Scale | Precision |
+|------|-------------|--------------:|--------------:|
+| `float` | Single Precision Number | ±1.5x10<sup>-45</sup> to ±3.4x10<sup>38</sup> | 7 digits |
+| `double` | Double Precision Number | ±5x10<sup>-324</sup> to ±1.7x10<sup>308</sup> | 15 or 16 digits |
+| `decimal` | Decimal Number | ±10<sup>-28</sup> to ±7.9x10<sup>28</sup> | 28 or 29 digits |
 
-Console.WriteLine("Hello World!");
-
-// { autofold
-    }
-}
-// }
-```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), use the [Advanced C# template](https://tech.io/select-repo/386)
