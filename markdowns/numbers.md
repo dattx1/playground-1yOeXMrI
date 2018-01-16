@@ -12,8 +12,8 @@ C# offers multiple numeric types, for integer data types and non-integer data ty
 | `ushort` | Unsigned byte | 0 | 65 535 |
 | `int` | Signed byte | -2 147 483 648 | 2 147 483 647 |
 | `uint` | Unsigned byte | 0 | 4 294 967 295 |
-| `long` | Signed byte | -9x10^8^ | 9x10^8^ |
-| `ulong` | Unsigned byte | 0 | 1,8x10^19^ |
+| `long` | Signed byte | -9x10<sup>8</sup> | 9x10<sup>8</sup> |
+| `ulong` | Unsigned byte | 0 | 1,8x10<sup>19</sup> |
 
 
 ```C# runnable
