@@ -71,3 +71,71 @@ class Example
 }
 // }
 ```
+
+## Parsing a numeric value
+
+As for formatting numeric values, parsing numeric values from an input text is a culture-dependant operation.
+
+Every numeric data type offers the `Parse` and `TryParse` methods, that can be used to retrieve a numeric value from an input string.
+
+Depending on the scenario, you may need to specify the culture used in the input string.
+
+When using the `Parse` method, if the input string cannot be parsed, an exception will be raised. Depending on the issue, it can be:
+* A `FormatException` if the input string does not match the current culture format of the desired type
+* A `OverflowException` if the value is too large or too small to match the desired type
+
+```C# runnable
+// { autofold
+using System;
+using System.Globalization;
+
+class Example 
+{
+    static void Main() 
+    {
+// }
+        // Most formats are culture dependant, so make sure to use the proper CultureInfo
+        CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+
+        if(double.TryParse("12.345", out var parsedDouble))
+        {
+            Console.WriteLine($"double: {parsedDouble}");
+        }
+
+        if(int.TryParse("-12345", out var parsedInt))
+        {
+            Console.WriteLine($"int: {parsedInt}");
+        }
+        
+        if(decimal.TryParse("-12345.6789", out var parsedDecimal))
+        {
+            Console.WriteLine($"decimal: {parsedDecimal}");
+        }
+        
+        if(!ulong.TryParse("-123", out var _))
+        {
+            Console.WriteLine("Invalid ulong string");
+        }
+        
+        try 
+        {
+            byte.Parse("123.456");
+        }
+        catch (FormatException fe)
+        {
+            Console.WriteLine(fe.Message);
+        }
+
+        try 
+        {
+            byte.Parse("123456");
+        }
+        catch (OverflowException oex)
+        {
+            Console.WriteLine(oex.Message);
+        }
+// { autofold
+    }
+}
+// }
+```

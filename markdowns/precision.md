@@ -54,6 +54,8 @@ Keep in mind that the rounding precision issue is still after a high number of d
 
 This will give you the best compromise between performance and precision, and it is often precise enough for financial applications.
 
+In the following example, you can see that there is a precision difference between the rate calculated from `double` types and the `decimal` types. However, the difference in the calculation result only appears at the 12<sub>th</sub> decimal digit.
+
 ```C# runnable
 // { autofold
 using System;
@@ -73,17 +75,20 @@ class Example
     decimal currencyRateDec = 6.830231m;
     decimal quantityRateDec = 0.7822m;
 
-    var resultWithDouble = priceBase * (decimal)((1 + rateBase) * currencyRate * quantityRate);    
-    var resultWithDecimal = priceBase * (1+rateBaseDec) * currencyRateDec * quantityRateDec;
+    var rateDouble = (1 + rateBase) * currencyRate * quantityRate;
+    var rateDecimal = (1+rateBaseDec) * currencyRateDec * quantityRateDec;
 
-    Console.WriteLine($"resultWithDouble: {(1 + rateBase) * currencyRate * quantityRate}");
-    Console.WriteLine($"resultWithDecimal: {(1+rateBaseDec) * currencyRateDec * quantityRateDec}");
+    var resultWithDouble = priceBase * (decimal)rateDouble;    
+    var resultWithDecimal = priceBase * rateDecimal;
 
-    Console.WriteLine($"resultWithDouble: {resultWithDouble}");
-    Console.WriteLine($"resultWithDecimal: {resultWithDecimal}");
+    Console.WriteLine($"rate (double):\t\t\t {rateDouble}");
+    Console.WriteLine($"rate (decimal):\t\t\t {rateDecimal}");
 
-    Console.WriteLine($"resultWithDouble (rounded): {Math.Round(resultWithDouble, 8)}");
-    Console.WriteLine($"resultWithDecimal (rounded): {Math.Round(resultWithDecimal, 8)}");
+    Console.WriteLine($"result (double):\t\t {resultWithDouble}");
+    Console.WriteLine($"result (decimal):\t\t {resultWithDecimal}");
+
+    Console.WriteLine($"rounded result (double):\t {Math.Round(resultWithDouble, 8)}");
+    Console.WriteLine($"rounded result (decimal):\t {Math.Round(resultWithDecimal, 8)}");
 // { autofold
     }
 }
