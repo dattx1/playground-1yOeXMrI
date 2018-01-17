@@ -47,6 +47,8 @@ You can also specify your own custom formatting rules using format specifiers.
 | `‰` | Multiplies a number by 1000 and inserts a localized per mille symbol in the result string |
 | `E0`, `E+0`, `E-0` | If followed by at least one 0 (zero), formats the result using exponential notation. The case of "E" or "e" indicates the case of the exponent symbol in the result string. The number of zeros following the "E" or "e" character determines the minimum number of digits in the exponent. A plus sign (+) indicates that a sign character always precedes the exponent. A minus sign (-) indicates that a sign character precedes only negative exponents |
 
+You can see some examples of custom formatting below.
+
 ```C# runnable
 // { autofold
 using System;

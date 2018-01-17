@@ -49,3 +49,43 @@ class Example
 }
 // }
 ```
+
+Keep in mind that the rounding precision issue is still after a high number of decimal part digits. If you need to calculate values for financial usage with multiple arithmetic operations, you can consider using `double` type for intermediary arithmetic operations, round the result to an appropriate number of digits and convert it to a `decimal`.
+
+This will give you the best compromise between performance and precision, and it is often precise enough for financial applications.
+
+```C# runnable
+// { autofold
+using System;
+
+class Example 
+{
+    static void Main() 
+    {
+// }
+    decimal priceBase = 9712.127m;
+
+    double rateBase = 0.124689;
+    double currencyRate = 6.830231;
+    double quantityRate = 0.7822; 
+    
+    decimal rateBaseDec = 0.124689m;
+    decimal currencyRateDec = 6.830231m;
+    decimal quantityRateDec = 0.7822m;
+
+    var resultWithDouble = priceBase * (decimal)((1 + rateBase) * currencyRate * quantityRate);    
+    var resultWithDecimal = priceBase * (1+rateBaseDec) * currencyRateDec * quantityRateDec;
+
+    Console.WriteLine($"resultWithDouble: {(1 + rateBase) * currencyRate * quantityRate}");
+    Console.WriteLine($"resultWithDecimal: {(1+rateBaseDec) * currencyRateDec * quantityRateDec}");
+
+    Console.WriteLine($"resultWithDouble: {resultWithDouble}");
+    Console.WriteLine($"resultWithDecimal: {resultWithDecimal}");
+
+    Console.WriteLine($"resultWithDouble (rounded): {Math.Round(resultWithDouble, 8)}");
+    Console.WriteLine($"resultWithDecimal (rounded): {Math.Round(resultWithDecimal, 8)}");
+// { autofold
+    }
+}
+// }
+```
