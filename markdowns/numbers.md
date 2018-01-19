@@ -15,7 +15,7 @@ C# offers multiple numeric types, for integer data types and non-integer data ty
 | `long` | Signed byte | -9x10<sup>8</sup> | 9x10<sup>8</sup> |
 | `ulong` | Unsigned byte | 0 | 1,8x10<sup>19</sup> |
 
-##Non-integer Data Types
+## Non-integer Data Types
 
 All non-integer data types are signed.
 

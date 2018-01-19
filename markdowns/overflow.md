@@ -32,6 +32,11 @@ By default, the .Net runtime will not raise exceptions when doing numeric calcul
 
 When using the `checked { ... }` code block, if any arithmetic operation causes an overflow, an `OverflowException` will be thrown, and will need to be catched and handled.
 
+_Note: Depending on the build options of your project, detection of overflow and underflow can be automatically enabled, removing the need for the `checked { ... }` code block. The option can be activated in the "Advanced" build settings of any C# project._
+
+![Overflow / Underflow build option][overflow-build-option]
+
+[overflow-build-option]: https://raw.githubusercontent.com/talent-agile/playground-1yOeXMrI/master/images/build-overflow-setting.png "Overflow / Underflow build option"
 
 ```C# runnable
 // { autofold
